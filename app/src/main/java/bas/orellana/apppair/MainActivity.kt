@@ -6,16 +6,20 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
 import bas.orellana.apppair.presentation.navigation.AppNavHost
-import bas.orellana.apppair.ui.theme.AppPairTestTheme
+import bas.orellana.apppair.presentation.ui.ThemeStateManager
+import bas.orellana.apppair.ui.theme.ToDoTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            AppPairTestTheme {
+            val isDarkMode by ThemeStateManager.isDarkMode.collectAsState()
+            ToDoTheme(isDarkMode = isDarkMode) {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background

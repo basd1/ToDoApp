@@ -5,7 +5,7 @@
 
 android {
     namespace = "bas.orellana.apppair.di"
-    compileSdk = 34
+    compileSdk = 36
 
     defaultConfig {
         minSdk = 33
@@ -27,4 +27,7 @@ dependencies {
     implementation(project(":presentation"))
     implementation(libs.koin.android)
     implementation(libs.koin.compose)
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
 }

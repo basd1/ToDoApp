@@ -1,26 +1,21 @@
 ﻿plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("com.google.devtools.ksp")
 }
-
 android {
     namespace = "bas.orellana.apppair.data"
-    compileSdk = 34
-
-    defaultConfig {
-        minSdk = 33
-    }
-
+    compileSdk = 36
+    defaultConfig { minSdk = 33 }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-
-    kotlinOptions {
-        jvmTarget = "11"
-    }
+    kotlinOptions { jvmTarget = "11" }
 }
-
 dependencies {
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    ksp(libs.androidx.room.compiler)
     implementation(project(":domain"))
 }

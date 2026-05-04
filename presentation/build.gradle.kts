@@ -6,7 +6,7 @@
 
 android {
     namespace = "bas.orellana.apppair.presentation"
-    compileSdk = 34
+    compileSdk = 36
 
     defaultConfig {
         minSdk = 33
@@ -27,12 +27,18 @@ android {
 }
 
 dependencies {
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.compose.ui)
+    implementation(libs.androidx.compose.ui.graphics)
+    implementation(libs.androidx.compose.material3)
+implementation(libs.androidx.compose.material.icons.extended)
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.koin.compose)
     implementation(project(":core"))
     implementation(project(":domain"))
     implementation(project(":navigation"))
     implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.compose.ui)
-    implementation(libs.androidx.compose.ui.graphics)
-    implementation(libs.androidx.compose.material3)
-    implementation(libs.androidx.navigation.compose)
 }
